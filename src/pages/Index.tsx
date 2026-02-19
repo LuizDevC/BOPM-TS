@@ -19,6 +19,7 @@ const patentes = [
   "Subtenente PM",
   "2º Tenente PM",
   "1º Tenente PM",
+  "Capitão PM",
 ];
 
 interface Apoio {
@@ -97,12 +98,13 @@ export default function Index() {
     return linhas.length ? linhas.join("\n") : "Sem Alteração.";
   };
 
-  const gerarTextoMateriais = () => {
-    const linhas = materiais
-      .filter((m) => m.quantidade.trim() && m.descricao.trim())
-      .map((m) => `${m.quantidade.trim()} ${m.descricao.trim()}`);
-    return linhas.length ? linhas.join("\n") : "Sem Alteração.";
-  };
+const gerarTextoMateriais = () => {
+  const linhas = materiais
+    .filter((m) => m.quantidade.trim() && m.descricao.trim())
+    .map((m) => `${m.quantidade.trim()}x ${m.descricao.trim()}`);
+
+  return linhas.length ? linhas.join("\n") : "Sem Alteração.";
+};
 
   const gerarBopm = () => {
     const texto = `BOPM nº ${form.numero}
